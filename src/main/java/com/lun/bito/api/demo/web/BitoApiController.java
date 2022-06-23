@@ -1,25 +1,38 @@
 package com.lun.bito.api.demo.web;
 
+import com.lun.bito.api.demo.entity.Member;
+import com.lun.bito.api.demo.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.List;
 
+@RestController
 public class BitoApiController {
 
-    @RestController
-    public class GreetingController {
 
-        private static final String template = "Hello, %s!";
-        private final AtomicLong counter = new AtomicLong();
 
-        @PostMapping("/greeting")
-        public void greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+    @Autowired
+    MemberRepository memberRepository;
 
-            //return new String(counter.incrementAndGet(), String.format(template, name));
+    @PostMapping(value ="/greeting")
+    public String greeting(@RequestBody Member member) {
+        memberRepository.save(member);
 
-        }
 
+        return new String("do some thing");
     }
+
+    @PostMapping(value ="/saveAll")
+    public String greeting(@RequestBody List<Member> members) {
+//        memberRepository.saveAll(members);
+        memberRepository.saveAllAndFlush(members);
+
+
+        return new String("do some thing2");
+    }
+
+
 }
