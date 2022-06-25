@@ -23,7 +23,7 @@ public class Producer implements Runnable{
                     stock ="END";
                 }
 
-                System.out.println("Producer thread: "+Thread.currentThread().getName());
+//                System.out.println("Producer thread: "+Thread.currentThread().getName());
                 demo.send(stock);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);

@@ -23,7 +23,7 @@ public class Sender implements Runnable{
 
             // Thread.sleep() to mimic heavy server-side processing
             try {
-                Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
+                Thread.sleep(ThreadLocalRandom.current().nextInt(100, 200));
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 System.out.println("Thread interrupted, "+e);

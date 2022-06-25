@@ -16,10 +16,12 @@ public class Rabbit implements Runnable{
         for (int i = 1; i < 101; i++) {
             System.out.printf("Rabbit step...%d\n", i);
             try {
-                Thread.sleep(ThreadLocalRandom.current().nextInt(100, 2000));
+                racer.eatFood();
+                Thread.sleep(ThreadLocalRandom.current().nextInt(100, 500));
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
+        racer.rank.add(racer.name);
     }
 }

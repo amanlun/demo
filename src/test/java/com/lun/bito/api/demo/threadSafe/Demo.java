@@ -8,35 +8,34 @@ public class Demo {
 
 
     synchronized String receive(){
-//        while (falg) {
-//            try {
-//                wait();
-//            } catch (InterruptedException e) {
-//                Thread.currentThread().interrupt();
-//                System.out.println("Thread interrupted, "+e);
-//            }
-//        }
-//        falg = true;
+        while (falg) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                System.out.println("Thread interrupted, "+e);
+            }
+        }
+        falg = true;
 
         String returnPacket = stock;
-//        notifyAll();
+        notifyAll();
         return returnPacket;
     }
 
     synchronized void send(String stock){
-//        while (!falg) {
-//            try {
-//                if(falg){
-//                    wait();
-//                }
-//
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//        falg =false;
+        while (!falg) {
+            try {
+                    wait();
+
+
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        falg =false;
         this.stock = stock;
-//        notifyAll();
+        notifyAll();
         
     }
 

@@ -12,13 +12,16 @@ public class Tortoise implements Runnable{
     @Override
     public void run() {
         racer.setName(getClass().getName());
-        for (int i = 1; i < 101; i++) {
+        for (int i = 1; i < 10; i++) {
             System.out.printf("tortois step %d\n",i);
             try {
+                racer.eatFood();
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
+        racer.rank.add(racer.name);
+
     }
 }
