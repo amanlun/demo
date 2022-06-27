@@ -6,19 +6,18 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "members")
+@Table(name = "member")
 public class Member {
-
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer poNo;
+    private Integer id;
 
-    private String memberName;
+    private String username;
 
-    private Integer vendorNo;
+    private String password;
 
-    private String shippingAddress;
+    private String perms;
 
-    private String description;
+    private String role;
 }

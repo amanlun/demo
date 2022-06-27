@@ -1,0 +1,15 @@
+-- DROP TABLE IF EXISTS member;
+--
+--
+-- CREATE TABLE member (
+--                         "id" SERIAL PRIMARY KEY,
+--                         "username" varchar(20) DEFAULT NULL,
+--                         "password" varchar(20) DEFAULT NULL,
+--                         "perms" varchar(20) DEFAULT NULL,
+--                         "role" varchar(20) DEFAULT NULL
+-- );
+--
+-- INSERT INTO member ("username","password","perms","role")VALUES
+-- ('zs','123123','',''),
+-- ('ls','123123','manage',''),
+-- ('ww','123123','manage','administrator');
